@@ -11,14 +11,14 @@ Create a README.md file for your repo. Include details that explain what the pro
 <br/>
 <h1> Summary </h1>
 I've created a form for the users to fill in. This form has three sections, 1. Basic Info, 2.Conferences that they can attend and 3. Payment Methods.
-<br/>
-<h3>The first section</h3> <br/> 
+
+<h3>The First Section</h3> <br/> 
 form form asks for basic information such as email, name, their current job role, and a T-Shirt section which has two design/theme, JS Puns or I <\3 JavaScript. The Color input will then become available and will let use choose their desired color. 
-<br/>
-<h3>The second section</h3> <br/>
+
+<h3>The Section Section</h3> <br/>
  is for users to choose which conference they would like to join.
-<br/>
-<h3> And lastly</h3> <br/>
+
+<h3> The Third Section</h3> <br/>
 the Payment method which provides steps on how to pay either through their credit card information, paypal or bitcoin.
 <br/>
 
