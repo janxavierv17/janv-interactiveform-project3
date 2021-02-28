@@ -21,16 +21,18 @@ const activityCheckBoxes = document.querySelectorAll('input[type="checkbox"]')
 
 // Once the page loads. The form's focuses on the first input.
 nameFieldInput.focus();
+
 otherJobRoleInput.style.display = "none"
-jobRoleInput.addEventListener("input", (e) => {
+jobRoleInput.addEventListener("change", (e) => {
     if (e.target.value === "other") {
-        otherJobRole.style.display = "block"
+        otherJobRoleInput.style.display = "block"
+    } else {
+        otherJobRoleInput.style.display = "none"
     }
 })
 
 /*
     Temporarily disable color input to avoid users let uses choose their design/theme first.
-    
     The if and else statements are conditionals. Once user chooses their desired design/theme 
         the color input will then populate its options that corresponds to their design/theme.
 */
@@ -73,7 +75,6 @@ registerForActivities.addEventListener("change", (e) => {
 
 // Payment info will let the user choose their payment method. If they choose one of the three, 
 // the corresponding payment inputs or information will show.
-creditCard.setAttribute("hidden", true)
 paypal.setAttribute("hidden", true)
 bitCoin.setAttribute("hidden", true)
 paymentMethod.addEventListener("input", (e) => {
@@ -135,13 +136,13 @@ const emailValidator = (element, e) => {
 // This function checks to see that at least one activity is selected.
 const activitiesValidator = (e) => {
     if (totalCost > 0) {
-        activitiesBox.parentNode.firstElementChild.classList.remove("not-valid")
-        activitiesBox.parentNode.firstElementChild.classList.add("valid")
+        activitiesBox.parentNode.classList.remove("not-valid")
+        activitiesBox.parentNode.classList.add("valid")
         activitiesBox.parentNode.lastElementChild.style.display = "none"
         return true;
     } else if (totalCost <= 0) {
         e.preventDefault();
-        activitiesBox.parentNode.firstElementChild.classList.add("not-valid")
+        activitiesBox.parentNode.classList.add("not-valid")
         activitiesBox.parentNode.classList.remove("valid")
         activitiesBox.parentNode.lastElementChild.style.display = "block"
         return false;
