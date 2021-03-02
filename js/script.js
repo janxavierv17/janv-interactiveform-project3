@@ -43,6 +43,7 @@ designInput.addEventListener("input", (e) => {
         for (let i = 0; i < colorInput.options.length; i++) {
             colorInput.options[i].removeAttribute("hidden")
             colorInput.options[0].setAttribute("hidden", true)
+            colorInput.selectedIndex = 1
             if (colorInput.options[i].getAttribute("data-theme") === "heart js") {
                 colorInput.options[i].setAttribute("hidden", true)
             }
@@ -52,6 +53,7 @@ designInput.addEventListener("input", (e) => {
         for (let i = 0; i < colorInput.options.length; i++) {
             colorInput.options[i].removeAttribute("hidden")
             colorInput.options[0].setAttribute("hidden", true)
+            colorInput.selectedIndex = 4
             if (colorInput.options[i].getAttribute("data-theme") === "js puns") {
                 colorInput.options[i].setAttribute("hidden", true)
             }
@@ -77,6 +79,7 @@ registerForActivities.addEventListener("change", (e) => {
 // the corresponding payment inputs or information will show.
 paypal.setAttribute("hidden", true)
 bitCoin.setAttribute("hidden", true)
+paymentMethod.selectedIndex = 1
 paymentMethod.addEventListener("input", (e) => {
     if (e.target.value === "credit-card") {
         creditCard.removeAttribute("hidden")
@@ -156,6 +159,9 @@ const activitiesValidator = (e) => {
      - Validate 5 digit zip code
      - Validate 3 digit CVV value
 */
+
+
+
 const cardNumberValidator = (element, e) => {
     let cardNum = element.value;
     let cardNumParent = element.parentNode;
@@ -222,9 +228,12 @@ form.addEventListener("submit", (e) => {
     nameValidator(nameFieldInput, e)
     emailValidator(emailInput, e)
     activitiesValidator(e)
-    cardNumberValidator(cardNumberInput, e)
-    zipCodeValidator(zipCode, e)
-    cvvValidator(cvv, e)
+
+    if (paymentMethod[1].selected) {
+        cardNumberValidator(cardNumberInput, e)
+        zipCodeValidator(zipCode, e)
+        cvvValidator(cvv, e)
+    }
 })
 
 // Provides a feedback mechanism on selected checkbox by giving border a color blue.
